@@ -17,14 +17,14 @@ const avis = [
 ];
 
 const catalogue = [
-  { nom: "Wolf cut",         categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/wolf-cut.jpg" },
-  { nom: "Bob carré",        categorie: "courte", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/bob-carre.jpg" },
-  { nom: "Pixie cut",        categorie: "courte", coiffeur: "Noah T.",    badge: null,        image: "images/pixie-cut.jpg" },
-  { nom: "Lob effilé",       categorie: "courte", coiffeur: "Lucas B.",   badge: "Tendance",  image: "images/lob-effile.jpg" },
-  { nom: "Chignon mariée",   categorie: "longue", coiffeur: "Camille R.", badge: "Cérémonie", image: "images/chignon-mariee.jpg" },
-  { nom: "Balayage soleil",  categorie: "longue", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/balayage-soleil.jpg" },
-  { nom: "Tresses couronne", categorie: "longue", coiffeur: "Camille R.", badge: "Cérémonie", image: "images/tresses-couronne.jpg" },
-  { nom: "Ondulations soft", categorie: "longue", coiffeur: "Noah T.",    badge: null,        image: "images/ondulations-soft.jpg" }
+  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/coupe-courte-2.png" },
+  { categorie: "courte", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/coupe-courte-.jpg" },
+  { categorie: "courte", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-courte-1.jpg" },
+  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Tendance",  image: "images/coupe-courte-3.jpg" },
+  { categorie: "longue", coiffeur: "Camille R.", badge: "Tendance", image: "images/coupe-longue-7.png" },
+  { categorie: "longue", coiffeur: "Sophie M.",  badge: "Cérémonie",  image: "images/coupe-longue-2.jpg" },
+  { categorie: "longue", coiffeur: "Camille R.", badge: "Cérémonie", image: "images/coupe-longue-3.jpg" },
+  { categorie: "longue", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-longue-5.png" }
 ];
 
 // ==== NAVBAR — effet scroll (Demo 03) ========================
