@@ -827,3 +827,99 @@ footer .col-md-4 { text-align: center !important; margin-bottom: 0.5rem; }
 .catalogue-card:hover .catalogue-photo {
   transform: none !important;
 }
+
+/* ══ CATALOGUE IMAGE — qualité et visibilité de la coiffure ══ */
+.catalogue-img {
+  height: 300px !important;
+  overflow: hidden;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--color-bg-alt);
+}
+.catalogue-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+  display: block;
+  transform: none !important;
+  background: var(--color-bg-alt);
+}
+.catalogue-card:hover .catalogue-photo {
+  transform: none !important;
+}
+
+/* ══ CATALOGUE IMAGE — hauteur fixe stricte, image centrée sans déborder ══ */
+.catalogue-img {
+  height: 260px !important;
+  max-height: 260px !important;
+  min-height: 260px !important;
+  width: 100%;
+  overflow: hidden !important;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+  background: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.catalogue-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 20% !important;
+  display: block !important;
+  flex-shrink: 0;
+  transform: none !important;
+}
+.catalogue-card:hover .catalogue-photo {
+  transform: none !important;
+}
+.catalogue-card {
+  overflow: hidden;
+}
+
+/* ══ CATALOGUE — corps carte sans nom de coupe ══ */
+.catalogue-categorie {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+.catalogue-coiffeur {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+/* ══ MAP EMBED ══ */
+.map-embed iframe {
+  width: 100%;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+}
+.map-adresse {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+.map-adresse i { color: var(--color-primary); }
+
+/* ══ HERO — vraie image salon ══ */
+.hero-salon-img {
+  width: 100%;
+  max-width: 420px;
+  height: 480px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
+  border: 2px solid var(--color-border);
+  display: block;
+}
+
+/* ══ AVIS — note globale centrée ══ */
+.note-globale.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

@@ -137,20 +137,21 @@ function chargerCatalogue(filtre = "toutes") {
     const body = document.createElement("div");
     body.className = "catalogue-body";
 
-    const nom = document.createElement("strong");
-    nom.textContent = item.nom;
+    const categorie = document.createElement("strong");
+    categorie.className = "catalogue-categorie";
+    categorie.textContent = item.categorie === "courte" ? "Coupe courte" : "Coupe longue";
 
-    const info = document.createElement("span");
-    // Template literal — Demo 05
-    info.textContent = `${item.categorie === "courte" ? "Coupe courte" : "Coupe longue"} · ${item.coiffeur}`;
+    const coiffeurNom = document.createElement("span");
+    coiffeurNom.className = "catalogue-coiffeur";
+    coiffeurNom.textContent = item.coiffeur;
 
     const btnRdv = document.createElement("a");
     btnRdv.href = "rdv.html";
     btnRdv.className = "btn-catalogue-rdv";
     btnRdv.textContent = "Réserver →";
 
-    body.appendChild(nom);
-    body.appendChild(info);
+    body.appendChild(categorie);
+    body.appendChild(coiffeurNom);
     body.appendChild(btnRdv);
     card.appendChild(imgWrap);
     card.appendChild(body);
@@ -209,6 +210,9 @@ function validerChamp(id) {
       aujourd.setHours(0, 0, 0, 0);
       valide = dateChoisie > aujourd;
       break;
+    case "rdv-heure":
+      valide = champ.value !== "";
+      break;
   }
 
   champ.classList.toggle("valide",   valide);
@@ -222,7 +226,7 @@ function initFormulaire() {
   const form = document.getElementById("form-rdv");
   if (!form) return;
 
-  const champs = ["rdv-nom", "rdv-telephone", "rdv-email", "rdv-coiffeuse", "rdv-service", "rdv-date"];
+  const champs = ["rdv-nom", "rdv-telephone", "rdv-email", "rdv-coiffeuse", "rdv-service", "rdv-date", "rdv-heure"];
 
   // Validation en temps réel — addEventListener (Demo 04)
   champs.forEach(id => {
@@ -282,8 +286,9 @@ function initFormulaire() {
     const { value: coiffeuse } = document.getElementById("rdv-coiffeuse");
     const { value: service }   = document.getElementById("rdv-service");
     const { value: date }      = document.getElementById("rdv-date");
+    const { value: heure }     = document.getElementById("rdv-heure");
 
-    const rdv = { nom, telephone, email, coiffeuse, service, date };
+    const rdv = { nom, telephone, email, coiffeuse, service, date, heure };
 
     const dateFormatee = new Date(rdv.date).toLocaleDateString("fr-CA", {
       weekday: "long", year: "numeric", month: "long", day: "numeric"
@@ -291,7 +296,7 @@ function initFormulaire() {
 
     // Template literal — Demo 05
     document.getElementById("confirm-msg").textContent =
-      `Merci ${rdv.nom} ! Votre rendez-vous pour une ${rdv.service.toLowerCase()} avec ${rdv.coiffeuse} le ${dateFormatee} a bien été enregistré.`;
+      `Merci ${rdv.nom} ! Votre rendez-vous pour une ${rdv.service.toLowerCase()} avec ${rdv.coiffeuse} le ${dateFormatee} à ${rdv.heure} a bien été enregistré.`;
 
     // Cacher le formulaire, afficher la confirmation
     form.style.display = "none";

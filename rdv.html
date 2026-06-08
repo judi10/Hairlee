@@ -86,10 +86,23 @@
               </div>
 
               <!-- Date -->
-              <div class="col-12">
+              <div class="col-md-6">
                 <label class="form-label" for="rdv-date">Date souhaitée *</label>
                 <input type="date" class="form-control" id="rdv-date" />
                 <div class="invalid-msg" id="err-date">La date doit être dans le futur</div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="rdv-heure">Heure *</label>
+                <select class="form-select" id="rdv-heure">
+                  <option value="">— Sélectionner —</option>
+                  <option value="14h00">14h00</option>
+                  <option value="15h00">15h00</option>
+                  <option value="16h00">16h00</option>
+                  <option value="17h00">17h00</option>
+                  <option value="18h00">18h00</option>
+                </select>
+                <div class="invalid-msg" id="err-heure">Veuillez choisir une heure</div>
               </div>
 
               <div class="col-12 mt-2">
@@ -133,7 +146,7 @@
               <i class="bi bi-clock-fill"></i>
               <div>
                 <strong>Horaires</strong>
-                <span>Lundi au Samedi · 9h à 19h</span>
+                <span>Lundi au Samedi · 14h00 à 19h00</span>
               </div>
             </div>
             <div class="rdv-info-item">
@@ -168,9 +181,9 @@
           <span class="text-muted small">© 2026 · Judicael Tokam</span>
         </div>
         <div class="col-md-4 text-md-end">
-          <a href="https://github.com/judi10" class="social-link me-3" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
-          <a href="https://linkedin.com/in/judicael-tokam/" class="social-link me-3" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
-          <a href="mailto:jtoka006@uottawa.ca" class="social-link" target="_blank" rel="noopener"><i class="bi bi-envelope"></i></a>
+          <a href="https://www.instagram.com/uottawa/?hl=fr" class="social-link me-3" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.tiktok.com/@uottawacampus" class="social-link me-3" target="_blank" rel="noopener"><i class="bi bi-tiktok"></i></a>
+          <a href="https://www.facebook.com/uottawa/?locale=fr_CA" class="social-link" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
         </div>
       </div>
     </div>
