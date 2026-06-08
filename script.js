@@ -12,14 +12,14 @@ const avis = [
 ];
 
 const catalogue = [
-  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/coupe-courte-2.jpg" },
-  { categorie: "courte", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/coupe-courte-3.jpg" },
+  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/coupe-courte-2.png" },
+  { categorie: "courte", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/coupe-courte-.jpg" },
   { categorie: "courte", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-courte-1.jpg" },
-  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Tendance",  image: "images/coupe-courte-2.jpg" },
+  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Tendance",  image: "images/coupe-courte-3.jpg" },
+  { categorie: "longue", coiffeur: "Camille R.", badge: "Tendance",  image: "images/coupe-longue-7.png" },
+  { categorie: "longue", coiffeur: "Sophie M.",  badge: "Cérémonie", image: "images/coupe-longue-2.jpg" },
   { categorie: "longue", coiffeur: "Camille R.", badge: "Cérémonie", image: "images/coupe-longue-3.jpg" },
-  { categorie: "longue", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/coupe-longue-1.jpg" },
-  { categorie: "longue", coiffeur: "Camille R.", badge: "Cérémonie", image: "images/coupe-longue-2.jpg" },
-  { categorie: "longue", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-longue-3.jpg" }
+  { categorie: "longue", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-longue-5.png" }
 ];
 
 const nav = document.querySelector("#main-nav");
