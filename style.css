@@ -793,3 +793,10 @@ body.page-avis .page-content,
 body.page-catalogue .page-content {
   flex: 1;
 }
+
+/* ══ ESPACEMENT SOUS LA NAVBAR — pages internes ══ */
+body.page-avis .page-content,
+body.page-catalogue .page-content,
+body.page-rdv .page-content {
+  padding-top: 6rem;
+}
