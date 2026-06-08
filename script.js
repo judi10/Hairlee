@@ -1,50 +1,38 @@
-// ============================================================
 // script.js — Hairlee | SEG3525 Devoir 2
-// Vanilla JS · HTML · CSS · Bootstrap (pas de React)
-// ============================================================
-
-// ==== DONNÉES ================================================
 
 const avis = [
-  { etoiles: 5, texte: "Résultat absolument parfait pour mon balayage. Sophie a su exactement ce que je voulais !", auteur: "Léa M.", coiffeur: "Sophie M." },
-  { etoiles: 5, texte: "Ma coiffure de mariée était magnifique. Camille a tout géré avec calme et talent.", auteur: "Camille R.", coiffeur: "Camille R." },
-  { etoiles: 5, texte: "Lucas connaît toutes les tendances ! Mon wolf cut est exactement ce que je cherchais.", auteur: "Sofia B.", coiffeur: "Lucas B." },
-  { etoiles: 4, texte: "Très belle expérience. Noah est à l'écoute et très professionnel.", auteur: "Inès D.", coiffeur: "Noah T." },
-  { etoiles: 5, texte: "J'avais peur de changer de look mais Lucas m'a rassurée. Le résultat est parfait !", auteur: "Emma T.", coiffeur: "Lucas B." },
-  { etoiles: 5, texte: "Sophie est une artiste. Mon ombré rose est encore plus beau que sur les photos !", auteur: "Yasmine K.", coiffeur: "Sophie M." },
-  { etoiles: 4, texte: "Salon très propre et accueillant. Je recommande Camille pour les coiffures de cérémonie.", auteur: "Fatima O.", coiffeur: "Camille R." },
-  { etoiles: 5, texte: "Première fois ici, j'ai trouvé le salon facilement grâce à la carte sur le site. Je reviendrai !", auteur: "Olween B.", coiffeur: "Noah T." }
+  { etoiles: 4.5, texte: "Résultat vraiment bien pour mon balayage. Sophie a su exactement ce que je voulais !", auteur: "Léa M.", coiffeur: "Sophie M." },
+  { etoiles: 4.2, texte: "Ma coiffure de mariée était magnifique. Camille a tout géré avec calme et talent.", auteur: "Camille R.", coiffeur: "Camille R." },
+  { etoiles: 4.8, texte: "Lucas connaît toutes les tendances ! Mon wolf cut est exactement ce que je cherchais.", auteur: "Sofia B.", coiffeur: "Lucas B." },
+  { etoiles: 4.0, texte: "Très belle expérience. Noah est à l'écoute et très professionnel.", auteur: "Inès D.", coiffeur: "Noah T." },
+  { etoiles: 4.5, texte: "J'avais peur de changer de look mais Lucas m'a rassurée. Le résultat est parfait !", auteur: "Emma T.", coiffeur: "Lucas B." },
+  { etoiles: 4.2, texte: "Sophie est une artiste. Mon ombré rose est encore plus beau que sur les photos !", auteur: "Yasmine K.", coiffeur: "Sophie M." },
+  { etoiles: 3.8, texte: "Salon propre et accueillant. Je recommande Camille pour les coiffures de cérémonie.", auteur: "Fatima O.", coiffeur: "Camille R." },
+  { etoiles: 4.5, texte: "Première fois ici, j'ai trouvé le salon facilement grâce à la carte sur le site. Je reviendrai !", auteur: "Olween B.", coiffeur: "Noah T." }
 ];
 
 const catalogue = [
-  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/coupe-courte-2.png" },
-  { categorie: "courte", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/coupe-courte-.jpg" },
+  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/coupe-courte-2.jpg" },
+  { categorie: "courte", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/coupe-courte-3.jpg" },
   { categorie: "courte", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-courte-1.jpg" },
-  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Tendance",  image: "images/coupe-courte-3.jpg" },
-  { categorie: "longue", coiffeur: "Camille R.", badge: "Tendance", image: "images/coupe-longue-7.png" },
-  { categorie: "longue", coiffeur: "Sophie M.",  badge: "Cérémonie",  image: "images/coupe-longue-2.jpg" },
+  { categorie: "courte", coiffeur: "Lucas B.",   badge: "Tendance",  image: "images/coupe-courte-2.jpg" },
   { categorie: "longue", coiffeur: "Camille R.", badge: "Cérémonie", image: "images/coupe-longue-3.jpg" },
-  { categorie: "longue", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-longue-5.png" }
+  { categorie: "longue", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/coupe-longue-1.jpg" },
+  { categorie: "longue", coiffeur: "Camille R.", badge: "Cérémonie", image: "images/coupe-longue-2.jpg" },
+  { categorie: "longue", coiffeur: "Noah T.",    badge: null,        image: "images/coupe-longue-3.jpg" }
 ];
-
-// ==== NAVBAR — effet scroll (Demo 03) ========================
 
 const nav = document.querySelector("#main-nav");
 window.addEventListener("scroll", () => {
   nav.classList.toggle("scrolled", window.scrollY > 50);
 });
 
-// ==== AVIS — injection dynamique (Demo 03 createElement) =====
-
-// Étoiles partielles — pas de 5/5 parfait (peu crédible pour l'utilisateur)
 function genererEtoiles(note) {
-  // note est sur 5, ex: 4.2
   let html = "";
   for (let i = 1; i <= 5; i++) {
     if (i <= Math.floor(note)) {
       html += `<span class="star-full">★</span>`;
     } else if (i === Math.ceil(note) && note % 1 !== 0) {
-      // Étoile partielle via opacité
       html += `<span class="star-part">★</span>`;
     } else {
       html += `<span class="star-empty">★</span>`;
@@ -58,7 +46,7 @@ function chargerAvis() {
   if (!grid) return;
 
   avis.forEach((a, index) => {
-    const col  = document.createElement("div");
+    const col = document.createElement("div");
     col.className = "col-md-6 col-lg-3 fade-in";
 
     const card = document.createElement("div");
@@ -86,19 +74,15 @@ function chargerAvis() {
   });
 }
 
-// ==== CATALOGUE — images + filtrage (Demo 02 + Demo 04) ======
-
 function chargerCatalogue(filtre = "toutes") {
   const grid = document.querySelector("#catalogue-grid");
   if (!grid) return;
 
   grid.innerHTML = "";
 
-  // filter() — Demo 02
   const items = filtre === "toutes"
     ? catalogue
     : catalogue.filter(item => item.categorie === filtre);
-
 
   items.forEach((item, index) => {
     const col = document.createElement("div");
@@ -107,15 +91,13 @@ function chargerCatalogue(filtre = "toutes") {
     const card = document.createElement("div");
     card.className = "catalogue-card";
 
-    // Zone image
     const imgWrap = document.createElement("div");
     imgWrap.className = "catalogue-img";
 
     const img = document.createElement("img");
     img.src = item.image;
-    img.alt = item.nom;
+    img.alt = item.categorie === "courte" ? "Coupe courte" : "Coupe longue";
     img.className = "catalogue-photo";
-    // Fallback si l'image n'existe pas encore
     img.onerror = function() {
       this.style.display = "none";
       imgWrap.classList.add("catalogue-img-fallback");
@@ -124,7 +106,6 @@ function chargerCatalogue(filtre = "toutes") {
 
     imgWrap.appendChild(img);
 
-    // Badge
     if (item.badge) {
       const badge = document.createElement("span");
       badge.classList.add("catalogue-badge");
@@ -133,7 +114,6 @@ function chargerCatalogue(filtre = "toutes") {
       imgWrap.appendChild(badge);
     }
 
-    // Corps
     const body = document.createElement("div");
     body.className = "catalogue-body";
 
@@ -175,12 +155,9 @@ function initFiltres() {
   });
 }
 
-// ==== FORMULAIRE RDV — validation + scroll + confirmation ====
-
-// Regex — inspiré Demo 04 + Demo 05
 const REGEX = {
-  nom:       /^[a-zA-ZÀ-ÿ][a-zA-ZÀ-ÿ '-]{1,}$/,        // min 2 chars, lettres/espaces/tirets
-  telephone: /^\d{3}-\d{3}-\d{4}$/,                      // 000-000-0000
+  nom:       /^[a-zA-ZÀ-ÿ][a-zA-ZÀ-ÿ '-]{1,}$/,
+  telephone: /^\d{3}-\d{3}-\d{4}$/,
   email:     /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 };
 
@@ -228,7 +205,6 @@ function initFormulaire() {
 
   const champs = ["rdv-nom", "rdv-telephone", "rdv-email", "rdv-coiffeuse", "rdv-service", "rdv-date", "rdv-heure"];
 
-  // Validation en temps réel — addEventListener (Demo 04)
   champs.forEach(id => {
     const el  = document.getElementById(id);
     if (!el) return;
@@ -236,11 +212,10 @@ function initFormulaire() {
     el.addEventListener(evt, () => validerChamp(id));
   });
 
-  // Formatage automatique du téléphone : 6135550182 → 613-555-0182
   const telInput = document.getElementById("rdv-telephone");
   if (telInput) {
     telInput.addEventListener("input", () => {
-      let val = telInput.value.replace(/\D/g, ""); // garder que les chiffres
+      let val = telInput.value.replace(/\D/g, "");
       if (val.length >= 7) {
         val = `${val.slice(0,3)}-${val.slice(3,6)}-${val.slice(6,10)}`;
       } else if (val.length >= 4) {
@@ -250,20 +225,17 @@ function initFormulaire() {
     });
   }
 
-  // Soumission — preventDefault (Demo 04)
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const toutValide = champs.every(id => validerChamp(id));
 
     if (!toutValide) {
-      // Scroll vers le premier champ invalide
       const premierInvalide = champs.find(id => {
         const el = document.getElementById(id);
         return el && el.classList.contains("invalide");
       });
 
-      // Si aucun n'a la classe invalide, c'est qu'il est vide — trouver le premier vide
       const cibleId = premierInvalide || champs.find(id => {
         const el = document.getElementById(id);
         return el && el.value === "";
@@ -273,13 +245,11 @@ function initFormulaire() {
         const cible = document.getElementById(cibleId);
         cible.scrollIntoView({ behavior: "smooth", block: "center" });
         cible.focus();
-        // Marquer comme invalide même si vide
         validerChamp(cibleId);
       }
       return;
     }
 
-    // Destructuration — Demo 05
     const { value: nom }       = document.getElementById("rdv-nom");
     const { value: telephone } = document.getElementById("rdv-telephone");
     const { value: email }     = document.getElementById("rdv-email");
@@ -294,17 +264,13 @@ function initFormulaire() {
       weekday: "long", year: "numeric", month: "long", day: "numeric"
     });
 
-    // Template literal — Demo 05
     document.getElementById("confirm-msg").textContent =
       `Merci ${rdv.nom} ! Votre rendez-vous pour une ${rdv.service.toLowerCase()} avec ${rdv.coiffeuse} le ${dateFormatee} à ${rdv.heure} a bien été enregistré.`;
 
-    // Cacher le formulaire, afficher la confirmation
     form.style.display = "none";
     const confirmBox = document.getElementById("confirm-box");
     confirmBox.style.display = "block";
     confirmBox.scrollIntoView({ behavior: "smooth", block: "center" });
-
-    console.log("RDV confirmé :", JSON.stringify(rdv));
   });
 }
 
@@ -323,8 +289,6 @@ function resetForm() {
   form.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-// ==== ANIMATIONS AU SCROLL ====================================
-
 function initAnimations() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -334,8 +298,6 @@ function initAnimations() {
 
   document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 }
-
-// ==== INIT ====================================================
 
 document.addEventListener("DOMContentLoaded", () => {
   chargerAvis();
