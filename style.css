@@ -800,3 +800,30 @@ body.page-catalogue .page-content,
 body.page-rdv .page-content {
   padding-top: 6rem;
 }
+
+/* ══ FOOTER — centré mobile, cohérent ══ */
+footer .row { text-align: center; }
+footer .col-md-4 { text-align: center !important; margin-bottom: 0.5rem; }
+@media (min-width: 768px) {
+  footer .col-md-4:first-child  { text-align: left !important; }
+  footer .col-md-4:last-child   { text-align: right !important; }
+  footer .col-md-4:nth-child(2) { text-align: center !important; }
+}
+
+/* ══ CATALOGUE IMAGE — pas de coupure, couvre toute la zone ══ */
+.catalogue-img {
+  height: 220px;
+  overflow: hidden;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+.catalogue-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transform: none !important;
+}
+.catalogue-card:hover .catalogue-photo {
+  transform: none !important;
+}

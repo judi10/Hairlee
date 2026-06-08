@@ -17,7 +17,7 @@ const avis = [
 ];
 
 const catalogue = [
-  { nom: "Wolf cut",         categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/coupelonguedos1.png" },
+  { nom: "Wolf cut",         categorie: "courte", coiffeur: "Lucas B.",   badge: "Viral",     image: "images/wolf-cut.jpg" },
   { nom: "Bob carré",        categorie: "courte", coiffeur: "Sophie M.",  badge: "Tendance",  image: "images/bob-carre.jpg" },
   { nom: "Pixie cut",        categorie: "courte", coiffeur: "Noah T.",    badge: null,        image: "images/pixie-cut.jpg" },
   { nom: "Lob effilé",       categorie: "courte", coiffeur: "Lucas B.",   badge: "Tendance",  image: "images/lob-effile.jpg" },
@@ -99,11 +99,6 @@ function chargerCatalogue(filtre = "toutes") {
     ? catalogue
     : catalogue.filter(item => item.categorie === filtre);
 
-  // Compteur résultats
-  const compteur = document.querySelector("#compteur-resultats");
-  if (compteur) {
-    compteur.textContent = `${items.length} coiffure${items.length > 1 ? "s" : ""} trouvée${items.length > 1 ? "s" : ""}`;
-  }
 
   items.forEach((item, index) => {
     const col = document.createElement("div");
